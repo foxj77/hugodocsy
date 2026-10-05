@@ -24,3 +24,4 @@ Example Hugo site using the Docsy theme, as a Hugo Module. See `README.md` for t
 - Keep top-level keys in `hugo.toml` above any `[table]`, or TOML scopes them into the table.
 - `markup.goldmark.renderer.unsafe = true` is needed for Docsy shortcodes.
 - After removing/moving content, `rm -rf public resources` and restart the server: stale `public/` output keeps serving deleted pages.
+- Deployment: `.github/workflows/pages.yml` builds and publishes to GitHub Pages on push to `main` (https://foxj77.github.io/hugodocsy/). It passes `--baseURL` at build time; do not hardcode the Pages URL in `hugo.toml`. Bump `HUGO_VERSION` there when upgrading Hugo locally.

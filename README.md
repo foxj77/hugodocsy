@@ -44,3 +44,12 @@ via `sass --embedded` -> pages in `content/` render using Docsy's layouts.
 - Hugo shells out to `sass --embedded`. The npm scripts put `node_modules/.bin` (from `sass-embedded`) on `PATH`; running bare `hugo server` fails with a SCSS error unless Dart Sass is on your PATH another way.
 - Content lives directly in `content/`, not `content/en/`: with Hugo 0.167 `content/en/` made every URL `/en/...`.
 - `markup.goldmark.renderer.unsafe = true` is required by Docsy shortcodes that emit HTML.
+
+## Publishing (GitHub Pages)
+
+`.github/workflows/pages.yml` builds the site with Hugo on every push to `main` and deploys
+it to GitHub Pages: https://foxj77.github.io/hugodocsy/. The workflow overrides `baseURL`
+with the Pages URL, so `hugo.toml` keeps `http://localhost:1313/` for local development.
+Pages source is set to "GitHub Actions" (repo Settings > Pages). The Hugo version is pinned
+by `HUGO_VERSION` in the workflow. For a custom domain, add it in Settings > Pages and a
+DNS `CNAME` to `foxj77.github.io`.
