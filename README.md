@@ -33,7 +33,7 @@ via `sass --embedded` -> pages in `content/` render using Docsy's layouts.
 - `hugo.toml` - site config, menu, Docsy module import
 - `content/_index.md` - site root; `type: docs` makes it the docs landing page (no splash page)
 - `content/<section>/_index.md` - a folder with an `_index.md` is a section (a sidebar group); other `.md` files are pages. `weight` orders them, `linkTitle` shortens the sidebar label, `description` feeds the section's child list
-- Sample sections: `getting-started/`, `navigation/` (ordering, titles, nested sections up to 4 levels), `content-examples/` (shortcodes, formatting), `reference/api/v1/` (deep nesting)
+- Sample sections: `getting-started/` (incl. tabbed install guide), `tutorials/` (numbered walkthrough), `navigation/` (ordering, titles, nesting to 4 levels), `content-examples/` (shortcodes, formatting, Mermaid diagrams), `reference/` (CLI and config tables, `api/v1/` deep nesting), plus top-level `troubleshooting.md` (FAQ with collapsible `<details>`) and `changelog.md`
 - `cascade: type: docs` in `content/_index.md` applies the docs layout to every page. Without it, pages outside a folder named `docs/` render blank
 - No blog section; to add one back, create `content/blog/_index.md` and a `[[menu.main]]` entry
 - `layouts/_partials/sidebar-args.html` - one-line override of Docsy's partial so the sidebar shows the whole tree (upstream limits it to the current top-level folder). Re-diff against the theme's copy when upgrading Docsy
