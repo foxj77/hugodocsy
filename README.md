@@ -36,7 +36,8 @@ via `sass --embedded` -> pages in `content/` render using Docsy's layouts.
 - Sample sections: `getting-started/`, `navigation/` (ordering, titles, nested sections up to 4 levels), `content-examples/` (shortcodes, formatting), `reference/api/v1/` (deep nesting)
 - `cascade: type: docs` in `content/_index.md` applies the docs layout to every page. Without it, pages outside a folder named `docs/` render blank
 - No blog section; to add one back, create `content/blog/_index.md` and a `[[menu.main]]` entry
-- `layouts/`, `assets/`, `static/` - empty; put files here to override Docsy's (same path wins)
+- `layouts/_partials/sidebar-args.html` - one-line override of Docsy's partial so the sidebar shows the whole tree (upstream limits it to the current top-level folder). Re-diff against the theme's copy when upgrading Docsy
+- `assets/`, `static/` - empty; put files here to override Docsy's (same path wins)
 
 ## Gotchas hit while building this
 
@@ -53,3 +54,10 @@ with the Pages URL, so `hugo.toml` keeps `http://localhost:1313/` for local deve
 Pages source is set to "GitHub Actions" (repo Settings > Pages). The Hugo version is pinned
 by `HUGO_VERSION` in the workflow. For a custom domain, add it in Settings > Pages and a
 DNS `CNAME` to `foxj77.github.io`.
+
+### Sidebar options (`[params.ui]` in `hugo.toml`)
+
+- `sidebar_menu_compact = false` (current): show siblings of the current section, not only its children
+- `sidebar_menu_foldable = true` (current): arrows to expand/collapse sections
+- `ul_show = 1` (current): levels expanded by default; raise it to open more of the tree
+- `sidebar_menu_compact = true`: Docsy's compact mode, showing only the current section's branch

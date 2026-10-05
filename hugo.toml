@@ -6,7 +6,9 @@ enableRobotsTXT = true
 copyright = "Example Co"
 
 [params.ui]
-sidebar_menu_compact = true
+sidebar_menu_compact = false  # show the whole tree, not just the current section
+sidebar_menu_foldable = true  # click the arrow to expand/collapse a section
+ul_show = 1                   # levels expanded by default
 breadcrumb_disable = false
 
 [menu]
