@@ -1,0 +1,30 @@
+baseURL = "http://localhost:1313/"
+title = "Hugo + Docsy Example"
+enableRobotsTXT = true
+
+[params]
+copyright = "Example Co"
+
+[params.ui]
+sidebar_menu_compact = true
+breadcrumb_disable = false
+
+[menu]
+[[menu.main]]
+name = "Docsy"
+weight = 50
+url = "https://www.docsy.dev/"
+pre = "<i class='fa-solid fa-book'></i>"
+
+# Docsy's raw-HTML shortcodes (blocks/cover etc.) need this
+[markup.goldmark.renderer]
+unsafe = true
+
+# Hugo loads Docsy as a Go module (see go.mod) -- no git submodule, no themes/ dir.
+# Docsy's Bootstrap and Font Awesome assets come from node_modules (package.json).
+[module]
+[module.hugoVersion]
+extended = true
+min = "0.160.1"
+[[module.imports]]
+path = "github.com/google/docsy/theme"

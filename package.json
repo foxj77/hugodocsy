@@ -1,0 +1,19 @@
+{
+  "name": "hugodocsy",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "serve": "PATH=$PWD/node_modules/.bin:$PATH hugo server",
+    "build": "PATH=$PWD/node_modules/.bin:$PATH hugo --gc --minify"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "postcss-cli": "^11.0.0",
+    "sass-embedded": "^1.105.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.3.1",
+    "bootstrap": "^5.3.8"
+  }
+}
