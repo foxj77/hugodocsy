@@ -1,0 +1,9 @@
+{{/* Returns the pages under a section in sidebar (depth-first) order. */ -}}
+{{ $out := slice -}}
+{{ range .Pages -}}
+  {{ $out = $out | append . -}}
+  {{ if .IsSection -}}
+    {{ $out = $out | append (partial "docs-flatten.html" .) -}}
+  {{ end -}}
+{{ end -}}
+{{ return $out -}}

@@ -1,0 +1,24 @@
+{{/* Previous/next links across the whole docs tree, following the sidebar order.
+Docsy's built-in pager.html only moves within one section. */ -}}
+{{ $home := .Site.Home -}}
+{{ $all := (slice $home) | append (partial "docs-flatten.html" $home) -}}
+{{ $prev := "" -}}
+{{ $next := "" -}}
+{{ range $i, $p := $all -}}
+  {{ if eq $p.RelPermalink $.RelPermalink -}}
+    {{ if gt $i 0 }}{{ $prev = index $all (sub $i 1) }}{{ end -}}
+    {{ if lt (add $i 1) (len $all) }}{{ $next = index $all (add $i 1) }}{{ end -}}
+  {{ end -}}
+{{ end -}}
+<nav class="d-flex justify-content-between align-items-stretch gap-3 pt-5" aria-label="Previous and next pages">
+  {{ with $prev -}}
+  <a class="btn btn-outline-primary text-start" href="{{ .RelPermalink }}" rel="prev">
+    <small class="d-block">← {{ T "ui_pager_prev" }}</small>{{ .LinkTitle }}
+  </a>
+  {{ else }}<span></span>{{ end }}
+  {{ with $next -}}
+  <a class="btn btn-outline-primary text-end ms-auto" href="{{ .RelPermalink }}" rel="next">
+    <small class="d-block">{{ T "ui_pager_next" }} →</small>{{ .LinkTitle }}
+  </a>
+  {{ end }}
+</nav>

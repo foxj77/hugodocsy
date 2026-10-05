@@ -37,6 +37,7 @@ via `sass --embedded` -> pages in `content/` render using Docsy's layouts.
 - `cascade: type: docs` in `content/_index.md` applies the docs layout to every page. Without it, pages outside a folder named `docs/` render blank
 - No blog section; to add one back, create `content/blog/_index.md` and a `[[menu.main]]` entry
 - `layouts/_partials/sidebar-args.html` - one-line override of Docsy's partial so the sidebar shows the whole tree (upstream limits it to the current top-level folder). Re-diff against the theme's copy when upgrading Docsy
+- `layouts/docs/_td-content.html`, `layouts/docs/list.html` + `layouts/_partials/docs-pager.html`, `docs-flatten.html` - copies of the theme's docs layouts with one added line each, which adds Previous/Next links at the bottom of every page. The links follow the sidebar order across sections (Docsy's own `pager.html` only works within one section). Re-diff against the theme when upgrading Docsy
 - `assets/`, `static/` - empty; put files here to override Docsy's (same path wins)
 
 ## Gotchas hit while building this
